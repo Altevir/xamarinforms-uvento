@@ -21,7 +21,7 @@ O que foi usado no desenvolvimento:
 ## Créditos
 ### Design
 https://dribbble.com/shots/9519342-UVENTO-App-Event-app-Exploration
-![846fa6874769c82c60c97c8ba8ed7721](https://user-images.githubusercontent.com/11803107/104140690-65e80580-5391-11eb-8a59-f1eae68064d0.png)
+![846fa6874769c82c60c97c8ba8ed7721](https://user-images.githubusercontent.com/11803107/104141139-fb849480-5393-11eb-86c7-c93490d56bfe.png)
 
 ### Licença
 MIT - Consulte o arquivo LICENSE.txt
