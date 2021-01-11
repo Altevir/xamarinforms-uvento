@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentView
+    x:Class="UventoXF.Controls.CalendarCarouselView"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+    <ContentView.Content>
+        <CollectionView
+            x:Name="listDates"
+            Grid.Column="1"
+            BackgroundColor="Transparent"
+            HeightRequest="60"
+            ItemsSource="{Binding Dates}"
+            SelectedItem="{Binding SelectedDate}"
+            SelectionChangedCommand="{Binding SelectDateCommand}"
+            SelectionChangedCommandParameter="{Binding SelectedDate}"
+            SelectionMode="Single">
+            <CollectionView.ItemsLayout>
+                <LinearItemsLayout ItemSpacing="0" Orientation="Horizontal" />
+            </CollectionView.ItemsLayout>
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Frame
+                        Padding="5,0,5,5"
+                        BackgroundColor="{Binding backgroundColor}"
+                        CornerRadius="10"
+                        HasShadow="False"
+                        IsClippedToBounds="True"
+                        WidthRequest="30">
+                        <Grid
+                            HorizontalOptions="Center"
+                            RowDefinitions="auto, auto"
+                            VerticalOptions="CenterAndExpand">
+                            <Label
+                                Grid.Row="1"
+                                Grid.Column="0"
+                                FontFamily="MuliBold"
+                                FontSize="Micro"
+                                HorizontalTextAlignment="Center"
+                                Text="{Binding day}"
+                                TextColor="{Binding textColor}" />
+                            <Label
+                                Grid.Row="2"
+                                Grid.Column="0"
+                                FontFamily="MuliBold"
+                                FontSize="Micro"
+                                HorizontalTextAlignment="Center"
+                                Text="{Binding dayWeek}"
+                                TextColor="{Binding textColor}" />
+                        </Grid>
+                    </Frame>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </ContentView.Content>
+</ContentView>

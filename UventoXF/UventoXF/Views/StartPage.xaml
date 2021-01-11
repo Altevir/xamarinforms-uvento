@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="UventoXF.Views.StartPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:fonticons="clr-namespace:UventoXF.FontIcons"
+    NavigationPage.HasNavigationBar="False">
+    <Grid>
+        <Image
+            Aspect="Fill"
+            HorizontalOptions="FillAndExpand"
+            Source="background"
+            VerticalOptions="FillAndExpand" />
+        <StackLayout
+            Padding="40,50,30,50"
+            HorizontalOptions="Start"
+            VerticalOptions="Center">
+            <Image
+                Aspect="AspectFit"
+                HeightRequest="54"
+                HorizontalOptions="Start"
+                Source="logo"
+                WidthRequest="54" />
+            <Label Margin="0,10">
+                <Label.FormattedText>
+                    <FormattedString>
+                        <Span
+                            FontFamily="MuliBlack"
+                            FontSize="30"
+                            Text="UVE" />
+                        <Span
+                            FontFamily="MuliBlack"
+                            FontSize="30"
+                            Text="NTO"
+                            TextColor="#FFA700" />
+                    </FormattedString>
+                </Label.FormattedText>
+            </Label>
+            <Label
+                FontFamily="OpenSansSemiBold"
+                FontSize="16"
+                Text="There's a lot happening around you! Our mission is to provide what's happening&#10;near you!" />
+            <Grid Margin="0,15,0,0" ColumnDefinitions="auto, auto">
+                <Label
+                    Grid.Column="0"
+                    FontFamily="MuliBold"
+                    FontSize="16"
+                    Text="Get Started" />
+                <Label
+                    Grid.Column="1"
+                    Margin="2,4,0,0"
+                    FontFamily="MaterialIcons"
+                    FontSize="22"
+                    HorizontalTextAlignment="Center"
+                    Text="{x:Static fonticons:FontIcons.ArrowRight}"
+                    TextColor="White"
+                    VerticalOptions="FillAndExpand"
+                    VerticalTextAlignment="Center" />
+                <Grid.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding NavigateToMainPageCommand}" NumberOfTapsRequired="1" />
+                </Grid.GestureRecognizers>
+            </Grid>
+        </StackLayout>
+    </Grid>
+</ContentPage>

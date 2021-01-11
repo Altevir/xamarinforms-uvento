@@ -1,0 +1,87 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentView
+    x:Class="UventoXF.Controls.ListEventsView"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+    <ContentView.Content>
+        <Grid RowDefinitions="auto, *">
+            <Label
+                Grid.Row="0"
+                Margin="0,15,0,15"
+                FontFamily="MuliBold"
+                FontSize="16"
+                Text="Popular Events" />
+            <CollectionView
+                x:Name="listEvents"
+                Grid.Row="1"
+                BackgroundColor="Transparent"
+                ItemsSource="{Binding Events}"
+                VerticalOptions="Start"
+                VerticalScrollBarVisibility="Never">
+                <CollectionView.ItemsLayout>
+                    <LinearItemsLayout ItemSpacing="20" Orientation="Vertical" />
+                </CollectionView.ItemsLayout>
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Frame
+                            Padding="0"
+                            BackgroundColor="#29404E"
+                            CornerRadius="10"
+                            HasShadow="False"
+                            HeightRequest="90"
+                            IsClippedToBounds="True">
+                            <Grid ColumnDefinitions="*, auto" RowDefinitions="auto, auto, auto">
+                                <Label
+                                    Grid.Row="0"
+                                    Grid.Column="0"
+                                    Margin="20,10,0,0"
+                                    FontFamily="MuliBold"
+                                    FontSize="Small"
+                                    Text="{Binding title}" />
+                                <Grid
+                                    Grid.Row="1"
+                                    Grid.Column="0"
+                                    Margin="20,0,0,0"
+                                    ColumnDefinitions="auto, *">
+                                    <Image
+                                        Grid.Column="0"
+                                        Aspect="AspectFit"
+                                        HeightRequest="10"
+                                        Source="calendar" />
+                                    <Label
+                                        Grid.Column="1"
+                                        FontFamily="MuliRegular"
+                                        FontSize="11"
+                                        Text="{Binding date}" />
+                                </Grid>
+                                <Grid
+                                    Grid.Row="2"
+                                    Grid.Column="0"
+                                    Margin="20,0,0,10"
+                                    ColumnDefinitions="auto, *">
+                                    <Image
+                                        Grid.Column="0"
+                                        Margin="0,-2,0,0"
+                                        Aspect="AspectFit"
+                                        HeightRequest="12"
+                                        Source="location" />
+                                    <Label
+                                        Grid.Column="1"
+                                        FontFamily="MuliRegular"
+                                        FontSize="11"
+                                        Text="{Binding location}" />
+                                </Grid>
+                                <Image
+                                    Grid.RowSpan="3"
+                                    Grid.Column="1"
+                                    Aspect="Fill"
+                                    Source="{Binding image}"
+                                    WidthRequest="100" />
+                            </Grid>
+                        </Frame>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </Grid>
+    </ContentView.Content>
+</ContentView>

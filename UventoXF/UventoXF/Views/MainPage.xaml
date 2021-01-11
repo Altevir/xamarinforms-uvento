@@ -1,0 +1,240 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="UventoXF.Views.MainPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:control="clr-namespace:UventoXF.Controls"
+    xmlns:fonticons="clr-namespace:UventoXF.FontIcons"
+    NavigationPage.HasNavigationBar="False">
+
+    <Grid
+        HorizontalOptions="FillAndExpand"
+        RowDefinitions="*, auto"
+        RowSpacing="0"
+        VerticalOptions="FillAndExpand">
+        <ScrollView Grid.Row="0">
+            <Grid
+                ColumnDefinitions="*, auto, auto"
+                ColumnSpacing="0"
+                HorizontalOptions="FillAndExpand"
+                RowDefinitions="auto, auto, auto, auto, *"
+                VerticalOptions="FillAndExpand">
+                <StackLayout
+                    Grid.Row="0"
+                    Margin="20,30,20,0"
+                    HorizontalOptions="FillAndExpand"
+                    Orientation="Horizontal">
+                    <Image
+                        Grid.Row="0"
+                        Grid.Column="0"
+                        Aspect="AspectFit"
+                        HeightRequest="24"
+                        Source="logo"
+                        WidthRequest="24" />
+                    <Label>
+                        <Label.FormattedText>
+                            <FormattedString>
+                                <Span
+                                    FontFamily="MuliBlack"
+                                    FontSize="20"
+                                    Text="UVE" />
+                                <Span
+                                    FontFamily="MuliBlack"
+                                    FontSize="20"
+                                    Text="NTO"
+                                    TextColor="#FFA700" />
+                            </FormattedString>
+                        </Label.FormattedText>
+                    </Label>
+                </StackLayout>
+                <Image
+                    Grid.Row="0"
+                    Grid.Column="1"
+                    Margin="0,30,20,0"
+                    Aspect="AspectFit"
+                    HeightRequest="20"
+                    Source="notification"
+                    WidthRequest="20" />
+                <Image
+                    Grid.Row="0"
+                    Grid.Column="2"
+                    Margin="0,30,20,0"
+                    Aspect="AspectFit"
+                    HeightRequest="20"
+                    Source="menu"
+                    WidthRequest="20" />
+                <Grid
+                    Grid.Row="1"
+                    Grid.ColumnSpan="3"
+                    Margin="20,20,20,0"
+                    ColumnDefinitions="*, auto"
+                    RowDefinitions="auto, auto">
+                    <Label
+                        Grid.Row="0"
+                        FontFamily="MuliBlack"
+                        FontSize="20"
+                        Text="Hello, Geralt!" />
+                    <Label
+                        Grid.Row="1"
+                        FontFamily="MuliBold"
+                        FontSize="14"
+                        Text="Let's explore what's happening nearby" />
+                    <BoxView
+                        Grid.RowSpan="2"
+                        Grid.Column="1"
+                        BackgroundColor="#FAE072"
+                        CornerRadius="27"
+                        HeightRequest="54"
+                        HorizontalOptions="Center"
+                        VerticalOptions="Center"
+                        WidthRequest="54" />
+                    <Image
+                        Grid.RowSpan="2"
+                        Grid.Column="1"
+                        Aspect="AspectFit"
+                        HeightRequest="50"
+                        HorizontalOptions="Center"
+                        Source="avatar"
+                        VerticalOptions="Center" />
+                </Grid>
+                <control:CalendarCarouselView
+                    x:Name="calendarView"
+                    Grid.Row="2"
+                    Grid.ColumnSpan="3"
+                    Margin="20,15,20,0"
+                    ItemsSource="{Binding Dates}" />
+                <control:ListEventTypesView
+                    Grid.Row="3"
+                    Grid.ColumnSpan="3"
+                    Margin="20,15,0,0"
+                    ItemsSource="{Binding EventTypes}"
+                    VerticalOptions="Start" />
+                <control:ListEventsView
+                    Grid.Row="4"
+                    Grid.ColumnSpan="3"
+                    Margin="20,0"
+                    ItemsSource="{Binding EventItems}"
+                    VerticalOptions="Start" />
+            </Grid>
+        </ScrollView>
+        <Grid
+            x:Name="gridFrames"
+            Grid.Row="1"
+            Padding="35,15"
+            BackgroundColor="#152F3E"
+            ColumnSpacing="60"
+            HeightRequest="50"
+            HorizontalOptions="FillAndExpand"
+            VerticalOptions="End">
+            <Frame
+                x:Name="frameHome"
+                Grid.Column="0"
+                BackgroundColor="#102733"
+                CornerRadius="{OnPlatform Android='30',
+                                          iOS='26'}"
+                HasShadow="False"
+                HorizontalOptions="FillAndExpand"
+                IsClippedToBounds="True"
+                StyleId="frameHome">
+                <Grid
+                    ColumnDefinitions="auto, auto"
+                    ColumnSpacing="10"
+                    HorizontalOptions="CenterAndExpand">
+                    <Label
+                        x:Name="lbIconHome"
+                        Grid.Column="0"
+                        FontFamily="MaterialIcons"
+                        FontSize="24"
+                        HorizontalTextAlignment="Center"
+                        Text="{x:Static fonticons:FontIcons.Home}"
+                        TextColor="{StaticResource orange}"
+                        VerticalTextAlignment="Center" />
+                    <Label
+                        x:Name="lbHome"
+                        Grid.Column="1"
+                        FontFamily="MuliBold"
+                        FontSize="12"
+                        HorizontalOptions="FillAndExpand"
+                        Text="Home"
+                        TextColor="{StaticResource orange}"
+                        VerticalTextAlignment="Center" />
+                </Grid>
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="TapGestureRecognizer_Tapped" />
+                </Frame.GestureRecognizers>
+            </Frame>
+            <Frame
+                x:Name="frameSearch"
+                Grid.Column="1"
+                BackgroundColor="#102733"
+                CornerRadius="{OnPlatform Android='30',
+                                          iOS='26'}"
+                HasShadow="False"
+                HorizontalOptions="FillAndExpand"
+                IsClippedToBounds="True"
+                StyleId="frameSearch">
+                <Grid
+                    ColumnDefinitions="auto, auto"
+                    ColumnSpacing="10"
+                    HorizontalOptions="CenterAndExpand">
+                    <Label
+                        x:Name="lbIconSearch"
+                        Grid.Column="0"
+                        FontFamily="MaterialIcons"
+                        FontSize="24"
+                        HorizontalTextAlignment="Center"
+                        Text="{x:Static fonticons:FontIcons.Magnify}"
+                        VerticalTextAlignment="Center" />
+                    <Label
+                        x:Name="lbSearch"
+                        Grid.Column="1"
+                        FontFamily="MuliBold"
+                        FontSize="12"
+                        HorizontalOptions="FillAndExpand"
+                        HorizontalTextAlignment="Center"
+                        Text="Search"
+                        VerticalTextAlignment="Center" />
+                </Grid>
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="TapGestureRecognizer_Tapped" />
+                </Frame.GestureRecognizers>
+            </Frame>
+            <Frame
+                x:Name="frameFavorite"
+                Grid.Column="2"
+                BackgroundColor="#102733"
+                CornerRadius="{OnPlatform Android='30',
+                                          iOS='26'}"
+                HasShadow="False"
+                HorizontalOptions="FillAndExpand"
+                IsClippedToBounds="True"
+                StyleId="frameFavorite">
+                <Grid
+                    ColumnDefinitions="auto, auto"
+                    ColumnSpacing="10"
+                    HorizontalOptions="CenterAndExpand">
+                    <Label
+                        x:Name="lbIconFavorite"
+                        Grid.Column="0"
+                        FontFamily="MaterialIcons"
+                        FontSize="24"
+                        HorizontalTextAlignment="Center"
+                        Text="{x:Static fonticons:FontIcons.StarOutline}"
+                        VerticalTextAlignment="Center" />
+                    <Label
+                        x:Name="lbFavorite"
+                        Grid.Column="1"
+                        FontFamily="MuliBold"
+                        FontSize="12"
+                        HorizontalOptions="FillAndExpand"
+                        HorizontalTextAlignment="Center"
+                        Text="Favorites"
+                        VerticalTextAlignment="Center" />
+                </Grid>
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="TapGestureRecognizer_Tapped" />
+                </Frame.GestureRecognizers>
+            </Frame>
+        </Grid>
+    </Grid>
+</ContentPage>
