@@ -34,12 +34,11 @@ namespace UventoXF.Controls
 
             control.listDates.ItemsSource = items;
             var index = items.ToList().FindIndex(p => p.selected);
-            if (index < items.Count)
-                index += 2;
 
             await Task.Delay(250);
 
-            control.listDates.ScrollTo(index);
+            if (index > -1)
+                control.listDates.ScrollTo(index, -1, ScrollToPosition.MakeVisible, true);
         }
     }
 }
