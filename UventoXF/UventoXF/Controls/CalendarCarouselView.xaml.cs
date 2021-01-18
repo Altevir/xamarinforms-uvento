@@ -19,7 +19,7 @@ namespace UventoXF.Controls
                returnType: typeof(ObservableCollection<DateItem>),
                declaringType: typeof(CalendarCarouselView),
                defaultValue: null,
-               defaultBindingMode: BindingMode.TwoWay,
+               defaultBindingMode: BindingMode.OneWay,
                propertyChanged: ItemsSourcePropertyChanged);
 
         public CalendarCarouselView()
@@ -32,7 +32,6 @@ namespace UventoXF.Controls
             var items = newValue as ObservableCollection<DateItem>;
             var control = (CalendarCarouselView)bindable;
 
-            control.listDates.ItemsSource = items;
             var index = items.ToList().FindIndex(p => p.selected);
 
             await Task.Delay(250);

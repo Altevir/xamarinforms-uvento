@@ -107,13 +107,11 @@
                     Grid.Row="3"
                     Grid.ColumnSpan="3"
                     Margin="20,15,0,0"
-                    ItemsSource="{Binding EventTypes}"
                     VerticalOptions="Start" />
                 <control:ListEventsView
                     Grid.Row="4"
                     Grid.ColumnSpan="3"
                     Margin="20,0"
-                    ItemsSource="{Binding EventItems}"
                     VerticalOptions="Start" />
             </Grid>
         </ScrollView>

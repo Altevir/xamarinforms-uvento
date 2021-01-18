@@ -12,10 +12,9 @@
                 FontSize="16"
                 Text="Popular Events" />
             <CollectionView
-                x:Name="listEvents"
                 Grid.Row="1"
                 BackgroundColor="Transparent"
-                ItemsSource="{Binding Events}"
+                ItemsSource="{Binding EventItems}"
                 VerticalOptions="Start"
                 VerticalScrollBarVisibility="Never">
                 <CollectionView.ItemsLayout>

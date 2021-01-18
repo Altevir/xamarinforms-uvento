@@ -15,10 +15,9 @@
                 FontSize="16"
                 Text="All Events" />
             <CollectionView
-                x:Name="listEvents"
                 Grid.Row="1"
                 BackgroundColor="Transparent"
-                ItemsSource="{Binding Events}"
+                ItemsSource="{Binding EventTypes}"
                 SelectedItem="{Binding SelectedEventType}"
                 SelectionChangedCommand="{Binding SelectEventTypeCommand}"
                 SelectionChangedCommandParameter="{Binding SelectedEventType}"
